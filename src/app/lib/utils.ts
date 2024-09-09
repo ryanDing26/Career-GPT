@@ -1,6 +1,6 @@
 import { HfInference } from '@huggingface/inference';
 import crypto from 'crypto';
-import { dot, norm } from 'mathjs';
+import { BigNumber, dot, norm, number } from 'mathjs';
 import { ragThreshold, similarStatements, internshipLink } from './constants';
 import { Pinecone } from '@pinecone-database/pinecone';
 
@@ -25,9 +25,9 @@ function generateHash(vector: number[]): string {
  */
 function cosineSimilarity(embedding1: number[], embedding2: number[]): number {
     const dotProduct: number = dot(embedding1, embedding2);
-    const magnitudeA: number = norm(embedding1);
-    const magnitudeB: number = norm(embedding2);
-    return dotProduct / (magnitudeA * magnitudeB);
+    const magnitudeA: number | BigNumber = norm(embedding1);
+    const magnitudeB: number | BigNumber = norm(embedding2);
+    return dotProduct / (number(magnitudeA) * number(magnitudeB));
 }
 
 /**
