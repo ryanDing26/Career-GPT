@@ -19,7 +19,8 @@
     "openai": "^4.56.0",
     "puppeteer": "^23.2.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "vercel": "^37.4.0"
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.5",
